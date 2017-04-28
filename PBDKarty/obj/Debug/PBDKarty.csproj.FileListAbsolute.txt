@@ -1,0 +1,26 @@
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\bin\Debug\PBDKarty.exe.config
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\bin\Debug\PBDKarty.exe
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\bin\Debug\PBDKarty.pdb
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\bin\Debug\EntityFramework.dll
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\bin\Debug\EntityFramework.xml
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\obj\Debug\PBDKarty.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\obj\Debug\PBDKarty.Properties.Resources.resources
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\obj\Debug\PBDKarty.csproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\obj\Debug\PBDKarty.exe
+c:\users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\obj\Debug\PBDKarty.pdb
+C:\Users\admin\documents\visual studio 2015\Projects\PBDKarty\PBDKarty\obj\Debug\PBDKarty.BazaDanych.resources
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Debug\PBDKarty.Properties.Resources.resources
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Debug\PBDKarty.csproj.GenerateResource.Cache
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Debug\PBDKarty.exe.config
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Debug\PBDKarty.exe
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Debug\PBDKarty.pdb
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Debug\PBDKarty.exe
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Debug\PBDKarty.pdb
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Debug\PBDKarty.BazaDanych.resources
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Debug\PBDKarty.csprojResolveAssemblyReference.cache

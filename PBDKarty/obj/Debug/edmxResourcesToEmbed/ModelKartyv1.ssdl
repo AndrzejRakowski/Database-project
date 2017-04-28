@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Kartyv1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Gracz">
+    <Key>
+      <PropertyRef Name="ID_Gracza" />
+    </Key>
+    <Property Name="ID_Gracza" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Data_Dolaczenia" Type="date" />
+    <Property Name="Data_Urodzin" Type="date" />
+    <Property Name="E-mail" Type="varchar" MaxLength="80" />
+    <Property Name="ID_Talii" Type="int" />
+  </EntityType>
+  <EntityType Name="Karty">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="ID_Karty" Type="int" Nullable="false" />
+    <Property Name="Nazwa_Karty" Type="varchar" MaxLength="50" />
+    <Property Name="Grafika" Type="nvarchar(max)" />
+    <Property Name="Koszt" Type="varchar" MaxLength="15" />
+    <Property Name="Typ" Type="varchar" MaxLength="50" />
+    <Property Name="Edycja" Type="varchar" MaxLength="50" />
+    <Property Name="Opis" Type="varchar" MaxLength="250" />
+    <Property Name="Rok" Type="int" />
+    <Property Name="Autor_Grafiki" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Karty-Talia">
+    <Key>
+      <PropertyRef Name="ID_K_T" />
+    </Key>
+    <Property Name="ID_K_T" Type="int" Nullable="false" />
+    <Property Name="Ilosc_Sztuk" Type="int" Nullable="false" />
+    <Property Name="ID_Karty" Type="int" />
+    <Property Name="ID_Talii" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kreatury">
+    <Key>
+      <PropertyRef Name="ID_Kreatury" />
+    </Key>
+    <Property Name="Atak" Type="int" />
+    <Property Name="Obrona" Type="int" />
+    <Property Name="ID_Kreatury" Type="int" Nullable="false" />
+    <Property Name="ID_Karty" Type="int" />
+  </EntityType>
+  <EntityType Name="Mana">
+    <Key>
+      <PropertyRef Name="ID_Mana" />
+    </Key>
+    <Property Name="Tapped" Type="bit" />
+    <Property Name="ID_Mana" Type="int" Nullable="false" />
+    <Property Name="ID_Karty" Type="int" />
+  </EntityType>
+  <EntityType Name="Planeswalker">
+    <Key>
+      <PropertyRef Name="ID_Planeswalker" />
+    </Key>
+    <Property Name="Punkty_Lojalnosci" Type="int" />
+    <Property Name="ID_Planeswalker" Type="int" Nullable="false" />
+    <Property Name="ID_Karty" Type="int" />
+  </EntityType>
+  <EntityType Name="Statystyka">
+    <Key>
+      <PropertyRef Name="ID_Statystyki" />
+    </Key>
+    <Property Name="ID_Statystyki" Type="int" Nullable="false" />
+    <Property Name="Wygrane" Type="int" />
+    <Property Name="Przegrane" Type="int" />
+    <Property Name="Remisy" Type="int" />
+    <Property Name="ID_Gracza" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Talia">
+    <Key>
+      <PropertyRef Name="ID_Talii" />
+    </Key>
+    <Property Name="ID_Talii" Type="int" Nullable="false" />
+    <Property Name="Nazwa_Talii" Type="varchar" MaxLength="50" />
+    <Property Name="Ilosc_Kart" Type="int" />
+  </EntityType>
+  <Association Name="Gracz-Statystyka">
+    <End Role="Gracz" Type="Self.Gracz" Multiplicity="1" />
+    <End Role="Statystyka" Type="Self.Statystyka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gracz">
+        <PropertyRef Name="ID_Gracza" />
+      </Principal>
+      <Dependent Role="Statystyka">
+        <PropertyRef Name="ID_Gracza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Karty-Kreatury">
+    <End Role="Karty" Type="Self.Karty" Multiplicity="0..1" />
+    <End Role="Kreatury" Type="Self.Kreatury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karty">
+        <PropertyRef Name="ID_Karty" />
+      </Principal>
+      <Dependent Role="Kreatury">
+        <PropertyRef Name="ID_Karty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Karty-Mana">
+    <End Role="Karty" Type="Self.Karty" Multiplicity="0..1" />
+    <End Role="Mana" Type="Self.Mana" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karty">
+        <PropertyRef Name="ID_Karty" />
+      </Principal>
+      <Dependent Role="Mana">
+        <PropertyRef Name="ID_Karty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Karty-Planeswalker">
+    <End Role="Karty" Type="Self.Karty" Multiplicity="0..1" />
+    <End Role="Planeswalker" Type="Self.Planeswalker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karty">
+        <PropertyRef Name="ID_Karty" />
+      </Principal>
+      <Dependent Role="Planeswalker">
+        <PropertyRef Name="ID_Karty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Karty-Talia_Karty">
+    <End Role="Karty" Type="Self.Karty" Multiplicity="0..1" />
+    <End Role="Karty-Talia" Type="Self.Karty-Talia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karty">
+        <PropertyRef Name="ID_Karty" />
+      </Principal>
+      <Dependent Role="Karty-Talia">
+        <PropertyRef Name="ID_Karty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="karty-Talia_Talia">
+    <End Role="Talia" Type="Self.Talia" Multiplicity="1" />
+    <End Role="Karty-Talia" Type="Self.Karty-Talia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Talia">
+        <PropertyRef Name="ID_Talii" />
+      </Principal>
+      <Dependent Role="Karty-Talia">
+        <PropertyRef Name="ID_Talii" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Talia-Gracz">
+    <End Role="Talia" Type="Self.Talia" Multiplicity="0..1" />
+    <End Role="Gracz" Type="Self.Gracz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Talia">
+        <PropertyRef Name="ID_Talii" />
+      </Principal>
+      <Dependent Role="Gracz">
+        <PropertyRef Name="ID_Talii" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Kartyv1ModelStoreContainer">
+    <EntitySet Name="Gracz" EntityType="Self.Gracz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Karty" EntityType="Self.Karty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Karty-Talia" EntityType="Self.Karty-Talia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kreatury" EntityType="Self.Kreatury" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mana" EntityType="Self.Mana" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Planeswalker" EntityType="Self.Planeswalker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statystyka" EntityType="Self.Statystyka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Talia" EntityType="Self.Talia" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Gracz-Statystyka" Association="Self.Gracz-Statystyka">
+      <End Role="Gracz" EntitySet="Gracz" />
+      <End Role="Statystyka" EntitySet="Statystyka" />
+    </AssociationSet>
+    <AssociationSet Name="Karty-Kreatury" Association="Self.Karty-Kreatury">
+      <End Role="Karty" EntitySet="Karty" />
+      <End Role="Kreatury" EntitySet="Kreatury" />
+    </AssociationSet>
+    <AssociationSet Name="Karty-Mana" Association="Self.Karty-Mana">
+      <End Role="Karty" EntitySet="Karty" />
+      <End Role="Mana" EntitySet="Mana" />
+    </AssociationSet>
+    <AssociationSet Name="Karty-Planeswalker" Association="Self.Karty-Planeswalker">
+      <End Role="Karty" EntitySet="Karty" />
+      <End Role="Planeswalker" EntitySet="Planeswalker" />
+    </AssociationSet>
+    <AssociationSet Name="Karty-Talia_Karty" Association="Self.Karty-Talia_Karty">
+      <End Role="Karty" EntitySet="Karty" />
+      <End Role="Karty-Talia" EntitySet="Karty-Talia" />
+    </AssociationSet>
+    <AssociationSet Name="karty-Talia_Talia" Association="Self.karty-Talia_Talia">
+      <End Role="Talia" EntitySet="Talia" />
+      <End Role="Karty-Talia" EntitySet="Karty-Talia" />
+    </AssociationSet>
+    <AssociationSet Name="Talia-Gracz" Association="Self.Talia-Gracz">
+      <End Role="Talia" EntitySet="Talia" />
+      <End Role="Gracz" EntitySet="Gracz" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

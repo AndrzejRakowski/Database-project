@@ -1,0 +1,4 @@
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\bin\Release\PBDKarty.exe.config
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Release\PBDKarty.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Release\PBDKarty.Properties.Resources.resources
+C:\Users\admin\Desktop\PBDKarty\PBDKarty\obj\Release\PBDKarty.csproj.GenerateResource.Cache

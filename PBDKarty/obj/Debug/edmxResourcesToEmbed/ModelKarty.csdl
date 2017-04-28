@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Kartyv0Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Gracz">
+    <Key>
+      <PropertyRef Name="ID_Gracza" />
+    </Key>
+    <Property Name="ID_Gracza" Type="Int32" Nullable="false" />
+    <Property Name="Data_Dolaczenia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_Urodzin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="E_mail" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Statystyka" Relationship="Self.Gracz_Statystyka" FromRole="Gracz" ToRole="Statystyka" />
+  </EntityType>
+  <EntityType Name="Karty">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="ID_Karty" Type="Int32" Nullable="false" />
+    <Property Name="Nazwa_Karty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Grafika" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Koszt" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Typ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Edycja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Opis" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Rok" Type="Int32" />
+    <Property Name="Autor_Grafiki" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Kreatury">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="Atak" Type="Int32" />
+    <Property Name="Obrona" Type="Int32" />
+    <Property Name="ID_Karty" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mana">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="Tapped" Type="Boolean" Nullable="false" />
+    <Property Name="ID_Karty" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Planeswalker">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="Punkty_Lojalnosci" Type="Int32" Nullable="false" />
+    <Property Name="ID_Karty" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Statystyka">
+    <Key>
+      <PropertyRef Name="ID_Statystyki" />
+    </Key>
+    <Property Name="ID_Statystyki" Type="Int32" Nullable="false" />
+    <Property Name="Wygrane" Type="Int32" />
+    <Property Name="Przegrane" Type="Int32" />
+    <Property Name="Remisy" Type="Int32" />
+    <Property Name="ID_Gracza" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gracz" Relationship="Self.Gracz_Statystyka" FromRole="Statystyka" ToRole="Gracz" />
+  </EntityType>
+  <EntityType Name="Talia">
+    <Key>
+      <PropertyRef Name="ID_Talii" />
+    </Key>
+    <Property Name="ID_Talii" Type="Int32" Nullable="false" />
+    <Property Name="Nazwa_Talii" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ilosc_Kart" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Karty_Talia">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+      <PropertyRef Name="ID_Talii" />
+      <PropertyRef Name="ID_Karty_Talia" />
+      <PropertyRef Name="Ilosc_Sztuk" />
+    </Key>
+    <Property Name="ID_Karty" Type="Int32" Nullable="false" />
+    <Property Name="ID_Talii" Type="Int32" Nullable="false" />
+    <Property Name="ID_Karty_Talia" Type="Int32" Nullable="false" />
+    <Property Name="Ilosc_Sztuk" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Talia_Gracz">
+    <Key>
+      <PropertyRef Name="ID_Talii" />
+      <PropertyRef Name="ID_Gracza" />
+      <PropertyRef Name="ID_Talia_Gracz" />
+    </Key>
+    <Property Name="ID_Talii" Type="Int32" Nullable="false" />
+    <Property Name="ID_Gracza" Type="Int32" Nullable="false" />
+    <Property Name="ID_Talia_Gracz" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="Gracz_Statystyka">
+    <End Role="Gracz" Type="Self.Gracz" Multiplicity="1" />
+    <End Role="Statystyka" Type="Self.Statystyka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gracz">
+        <PropertyRef Name="ID_Gracza" />
+      </Principal>
+      <Dependent Role="Statystyka">
+        <PropertyRef Name="ID_Gracza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Kartyv0Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gracz" EntityType="Self.Gracz" />
+    <EntitySet Name="Karty" EntityType="Self.Karty" />
+    <EntitySet Name="Kreatury" EntityType="Self.Kreatury" />
+    <EntitySet Name="Mana" EntityType="Self.Mana" />
+    <EntitySet Name="Planeswalker" EntityType="Self.Planeswalker" />
+    <EntitySet Name="Statystyka" EntityType="Self.Statystyka" />
+    <EntitySet Name="Talia" EntityType="Self.Talia" />
+    <EntitySet Name="Karty_Talia" EntityType="Self.Karty_Talia" />
+    <EntitySet Name="Talia_Gracz" EntityType="Self.Talia_Gracz" />
+    <AssociationSet Name="Gracz_Statystyka" Association="Self.Gracz_Statystyka">
+      <End Role="Gracz" EntitySet="Gracz" />
+      <End Role="Statystyka" EntitySet="Statystyka" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBDKarty", "PBDKarty\PBDKarty.csproj", "{941F5DC5-A8F2-43B6-8E38-D8A590733B9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{894FCA80-73F6-4BEE-8E21-5991E1BB220E}"
+	ProjectSection(SolutionItems) = preProject
+		PBDKarty\Form1.cs = PBDKarty\Form1.cs
+		PBDKarty\Form1.resx = PBDKarty\Form1.resx
+		RuleSet1.ruleset = RuleSet1.ruleset
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{941F5DC5-A8F2-43B6-8E38-D8A590733B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941F5DC5-A8F2-43B6-8E38-D8A590733B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941F5DC5-A8F2-43B6-8E38-D8A590733B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941F5DC5-A8F2-43B6-8E38-D8A590733B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

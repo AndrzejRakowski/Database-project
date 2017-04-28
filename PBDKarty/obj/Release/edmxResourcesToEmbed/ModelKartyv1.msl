@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Kartyv1ModelStoreContainer" CdmEntityContainer="Kartyv1Entities">
+    <EntitySetMapping Name="Gracz">
+      <EntityTypeMapping TypeName="Kartyv1Model.Gracz">
+        <MappingFragment StoreEntitySet="Gracz">
+          <ScalarProperty Name="ID_Gracza" ColumnName="ID_Gracza" />
+          <ScalarProperty Name="Data_Dolaczenia" ColumnName="Data_Dolaczenia" />
+          <ScalarProperty Name="Data_Urodzin" ColumnName="Data_Urodzin" />
+          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+          <ScalarProperty Name="ID_Talii" ColumnName="ID_Talii" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karty">
+      <EntityTypeMapping TypeName="Kartyv1Model.Karty">
+        <MappingFragment StoreEntitySet="Karty">
+          <ScalarProperty Name="ID_Karty" ColumnName="ID_Karty" />
+          <ScalarProperty Name="Nazwa_Karty" ColumnName="Nazwa_Karty" />
+          <ScalarProperty Name="Grafika" ColumnName="Grafika" />
+          <ScalarProperty Name="Koszt" ColumnName="Koszt" />
+          <ScalarProperty Name="Typ" ColumnName="Typ" />
+          <ScalarProperty Name="Edycja" ColumnName="Edycja" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Rok" ColumnName="Rok" />
+          <ScalarProperty Name="Autor_Grafiki" ColumnName="Autor_Grafiki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karty_Talia">
+      <EntityTypeMapping TypeName="Kartyv1Model.Karty_Talia">
+        <MappingFragment StoreEntitySet="Karty-Talia">
+          <ScalarProperty Name="ID_K_T" ColumnName="ID_K_T" />
+          <ScalarProperty Name="Ilosc_Sztuk" ColumnName="Ilosc_Sztuk" />
+          <ScalarProperty Name="ID_Karty" ColumnName="ID_Karty" />
+          <ScalarProperty Name="ID_Talii" ColumnName="ID_Talii" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kreatury">
+      <EntityTypeMapping TypeName="Kartyv1Model.Kreatury">
+        <MappingFragment StoreEntitySet="Kreatury">
+          <ScalarProperty Name="Atak" ColumnName="Atak" />
+          <ScalarProperty Name="Obrona" ColumnName="Obrona" />
+          <ScalarProperty Name="ID_Kreatury" ColumnName="ID_Kreatury" />
+          <ScalarProperty Name="ID_Karty" ColumnName="ID_Karty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mana">
+      <EntityTypeMapping TypeName="Kartyv1Model.Mana">
+        <MappingFragment StoreEntitySet="Mana">
+          <ScalarProperty Name="Tapped" ColumnName="Tapped" />
+          <ScalarProperty Name="ID_Mana" ColumnName="ID_Mana" />
+          <ScalarProperty Name="ID_Karty" ColumnName="ID_Karty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planeswalker">
+      <EntityTypeMapping TypeName="Kartyv1Model.Planeswalker">
+        <MappingFragment StoreEntitySet="Planeswalker">
+          <ScalarProperty Name="Punkty_Lojalnosci" ColumnName="Punkty_Lojalnosci" />
+          <ScalarProperty Name="ID_Planeswalker" ColumnName="ID_Planeswalker" />
+          <ScalarProperty Name="ID_Karty" ColumnName="ID_Karty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statystyka">
+      <EntityTypeMapping TypeName="Kartyv1Model.Statystyka">
+        <MappingFragment StoreEntitySet="Statystyka">
+          <ScalarProperty Name="ID_Statystyki" ColumnName="ID_Statystyki" />
+          <ScalarProperty Name="Wygrane" ColumnName="Wygrane" />
+          <ScalarProperty Name="Przegrane" ColumnName="Przegrane" />
+          <ScalarProperty Name="Remisy" ColumnName="Remisy" />
+          <ScalarProperty Name="ID_Gracza" ColumnName="ID_Gracza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Talia">
+      <EntityTypeMapping TypeName="Kartyv1Model.Talia">
+        <MappingFragment StoreEntitySet="Talia">
+          <ScalarProperty Name="ID_Talii" ColumnName="ID_Talii" />
+          <ScalarProperty Name="Nazwa_Talii" ColumnName="Nazwa_Talii" />
+          <ScalarProperty Name="Ilosc_Kart" ColumnName="Ilosc_Kart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

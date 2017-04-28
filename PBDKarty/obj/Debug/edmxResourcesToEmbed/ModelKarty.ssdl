@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Kartyv0Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Gracz">
+    <Key>
+      <PropertyRef Name="ID_Gracza" />
+    </Key>
+    <Property Name="ID_Gracza" Type="int" Nullable="false" />
+    <Property Name="Data_Dolaczenia" Type="date" Nullable="false" />
+    <Property Name="Data_Urodzin" Type="date" Nullable="false" />
+    <Property Name="E-mail" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="Karty">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="ID_Karty" Type="int" Nullable="false" />
+    <Property Name="Nazwa_Karty" Type="varchar" MaxLength="50" />
+    <Property Name="Grafika" Type="nvarchar(max)" />
+    <Property Name="Koszt" Type="varchar" MaxLength="15" />
+    <Property Name="Typ" Type="varchar" MaxLength="50" />
+    <Property Name="Edycja" Type="varchar" MaxLength="50" />
+    <Property Name="Opis" Type="varchar" MaxLength="250" />
+    <Property Name="Rok" Type="int" />
+    <Property Name="Autor_Grafiki" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Kartyv0.dbo.Karty_Talia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Karty_Talia">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+      <PropertyRef Name="ID_Talii" />
+      <PropertyRef Name="ID_Karty_Talia" />
+      <PropertyRef Name="Ilosc_Sztuk" />
+    </Key>
+    <Property Name="ID_Karty" Type="int" Nullable="false" />
+    <Property Name="ID_Talii" Type="int" Nullable="false" />
+    <Property Name="ID_Karty_Talia" Type="int" Nullable="false" />
+    <Property Name="Ilosc_Sztuk" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kreatury">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="Atak" Type="int" />
+    <Property Name="Obrona" Type="int" />
+    <Property Name="ID_Karty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mana">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="Tapped" Type="bit" Nullable="false" />
+    <Property Name="ID_Karty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Planeswalker">
+    <Key>
+      <PropertyRef Name="ID_Karty" />
+    </Key>
+    <Property Name="Punkty_Lojalnosci" Type="int" Nullable="false" />
+    <Property Name="ID_Karty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Statystyka">
+    <Key>
+      <PropertyRef Name="ID_Statystyki" />
+    </Key>
+    <Property Name="ID_Statystyki" Type="int" Nullable="false" />
+    <Property Name="Wygrane" Type="int" />
+    <Property Name="Przegrane" Type="int" />
+    <Property Name="Remisy" Type="int" />
+    <Property Name="ID_Gracza" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Talia">
+    <Key>
+      <PropertyRef Name="ID_Talii" />
+    </Key>
+    <Property Name="ID_Talii" Type="int" Nullable="false" />
+    <Property Name="Nazwa_Talii" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ilosc_Kart" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Kartyv0.dbo.Talia_Gracz' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Talia_Gracz">
+    <Key>
+      <PropertyRef Name="ID_Talii" />
+      <PropertyRef Name="ID_Gracza" />
+      <PropertyRef Name="ID_Talia_Gracz" />
+    </Key>
+    <Property Name="ID_Talii" Type="int" Nullable="false" />
+    <Property Name="ID_Gracza" Type="int" Nullable="false" />
+    <Property Name="ID_Talia_Gracz" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Gracz-Statystyka">
+    <End Role="Gracz" Type="Self.Gracz" Multiplicity="1" />
+    <End Role="Statystyka" Type="Self.Statystyka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gracz">
+        <PropertyRef Name="ID_Gracza" />
+      </Principal>
+      <Dependent Role="Statystyka">
+        <PropertyRef Name="ID_Gracza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Kartyv0ModelStoreContainer">
+    <EntitySet Name="Gracz" EntityType="Self.Gracz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Karty" EntityType="Self.Karty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kreatury" EntityType="Self.Kreatury" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mana" EntityType="Self.Mana" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Planeswalker" EntityType="Self.Planeswalker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statystyka" EntityType="Self.Statystyka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Talia" EntityType="Self.Talia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Karty_Talia" EntityType="Self.Karty_Talia" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Karty_Talia].[ID_Karty] AS [ID_Karty], 
+    [Karty_Talia].[ID_Talii] AS [ID_Talii], 
+    [Karty_Talia].[ID_Karty_Talia] AS [ID_Karty_Talia], 
+    [Karty_Talia].[Ilosc_Sztuk] AS [Ilosc_Sztuk]
+    FROM [dbo].[Karty_Talia] AS [Karty_Talia]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Talia_Gracz" EntityType="Self.Talia_Gracz" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Talia_Gracz].[ID_Talii] AS [ID_Talii], 
+    [Talia_Gracz].[ID_Gracza] AS [ID_Gracza], 
+    [Talia_Gracz].[ID_Talia_Gracz] AS [ID_Talia_Gracz]
+    FROM [dbo].[Talia_Gracz] AS [Talia_Gracz]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="Gracz-Statystyka" Association="Self.Gracz-Statystyka">
+      <End Role="Gracz" EntitySet="Gracz" />
+      <End Role="Statystyka" EntitySet="Statystyka" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
